@@ -57,14 +57,14 @@ class lumberjack::config {
         concat::fragment{"default-start":
             target  => "${configdir}/${config}",
             content => template("${module_name}/network_format.erb"),
-            order   => 001,
+            order   => 01,
         }  
 
         # Add the ending brackets and additional set of {} brackets needed to fix comma/json parsing issue
         concat::fragment{"default-end":
             target  => "${configdir}/${config}",
             content => "\n\t\t}\n\t]\n}\n",
-            order   => 999,
+            order   => 99,
         }
         
     } else {
